@@ -36,6 +36,5 @@ public class CreditTest extends BaseTest {
         }
 
         functions.assertStrings(actualCreditAmount, expectedCreditAmount);
-
     }
 }
