@@ -23,7 +23,7 @@ public class SravniZaymPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "(//*[@class='submit'])[11]")
+    @FindBy(xpath = "(//*[@class='submit'])[10]")
     private WebElement submitButton;
     @FindBy(xpath = "(//*[@class='noUi-pips noUi-pips-horizontal'])[1]")
     private WebElement slider;
@@ -51,6 +51,7 @@ public class SravniZaymPage {
         move.build().perform();
     }
 
+    int indexOfMinimum;
     public void createCommissionAmountList() {
         ArrayList<String> obtainedList = new ArrayList();
         List<WebElement> elementList = driver.findElements(By.xpath("//ul[@class='noFirst']//div[3]/span[@class='value']/div[@class='cell']/span"));
@@ -64,10 +65,9 @@ public class SravniZaymPage {
             sortedList.add(Integer.valueOf(myInt));
         }
 
-        Collections.sort(sortedList);
         System.out.println("commission are: " + sortedList);
-        String a = String.valueOf(sortedList.get(0));
-
+        indexOfMinimum = sortedList.indexOf(Collections.min(sortedList));
+        System.out.println(indexOfMinimum);
 
 
     }
